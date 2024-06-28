@@ -1,13 +1,18 @@
 <script setup lang="ts">
 let searchQuery: string | null = null;
-let leagues: Object[] | [] = [];
+const state = reactive({leagues: []})
 
+import { reactive } from 'vue';
 import leaguesApi from '../api/leaguesApi';
 
 const { fetchLeagues } = leaguesApi();
+const setLeagues = async () => {
+    state.leagues = await fetchLeagues()
+    console.log(state.leagues)
+}
 
-fetchLeagues();
 
+setLeagues();
 </script>
 <template>
     <div class="container">
@@ -15,7 +20,7 @@ fetchLeagues();
             Search here
         </div>
         <div class="leagues-list">
-            <div class="leagues-item" v-for="league in leagues">
+            <div class="leagues-item" v-for="league in state.leagues">
                 <pre> {{ league }}</pre>
             </div>
         </div>
