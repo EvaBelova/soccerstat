@@ -12,17 +12,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-//   .container {
-//     padding: 0 16px;
-//     margin: 0 auto;
-//   }
 body, #app {
     min-height: 100vh;
 }
 #app {
     display: flex;
     flex-direction: column;
+    color: darken(#4C5270, 2)
 }
-.main {
-    
+a {
+    color: #4C5270
 }
